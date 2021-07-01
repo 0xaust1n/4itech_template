@@ -1,15 +1,6 @@
 public class ExceptionMappingWrapper {
-  public static Map<String, String> eMap;
-
   public static String GetFailStatusCode(String e) {
-    setMap();
-    String subStirng = e.replace('CustomExceptions.', '');
-    System.debug(subStirng);
-    String statusCode = eMap.get(e);
-    return statusCode;
-  }
-
-  public static void setMap() {
+    Map<String, String> eMap = new Map<String, String>();
     eMap.put('AsyncException', '40001');
     eMap.put('BigObjectException', '40002');
     eMap.put('CalloutException', '40003');
@@ -36,7 +27,10 @@ public class ExceptionMappingWrapper {
     eMap.put('TypeException', '40024');
     eMap.put('VisualforceException', '40025');
     eMap.put('XmlException', '40026');
-    eMap.put('InvalidNumberException', '40027');
+    eMap.put('InvalidFutureDateException', '40027');
     eMap.put('InvalidNumberException', '40028');
+    String subStirng = e.replace('CustomExceptions.', '');
+    String code = eMap.get(subStirng);
+    return code;
   }
 }
