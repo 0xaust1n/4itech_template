@@ -1,20 +1,19 @@
 public class ResponseBodyWrapper {
   public static String GetResponseBody(
-    Boolean isSuccess,
-    String statusCode,
+    String isSuccess,
+    String code,
     String content
   ) {
-    String tab4 = '\t' + '\t';
-    String tab2 = '\t';
-
-    String body = '{' + '\n';
-    body += tab2 + 'success:' + String.valueOf(isSuccess) + ',' + '\n';
-    body += tab2 + 'message:{' + '\n';
-    body += tab4 + 'code:' + statusCode + ',' + '\n';
-    body += tab4 + 'content:' + content + '\n';
-    body += tab2 + '}' + '\n';
-    body += '}';
-
-    return body;
+    //init wrapper class
+    ResponJsonWrapper wrapper = new ResponJsonWrapper();
+    wrapper.success = isSuccess;
+    //init messgae class
+    ResponJsonWrapper.Message msg = new ResponJsonWrapper.Message();
+    msg.code = code;
+    msg.content = content;
+    //pass message class to wrapper
+    wrapper.message = msg;
+    String json = JSON.serialize(wrapper);
+    return json;
   }
 }
