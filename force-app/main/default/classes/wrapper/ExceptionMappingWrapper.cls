@@ -3,6 +3,8 @@ public class ExceptionMappingWrapper {
 
   public static String GetFailStatusCode(String e) {
     setMap();
+    String subStirng = e.replace('CustomExceptions.', '');
+    System.debug(subStirng);
     String statusCode = eMap.get(e);
     return statusCode;
   }
@@ -34,7 +36,7 @@ public class ExceptionMappingWrapper {
     eMap.put('TypeException', '40024');
     eMap.put('VisualforceException', '40025');
     eMap.put('XmlException', '40026');
-    eMap.put('CustomExceptions.InvalidFutureDateException', '40027');
-    eMap.put('CustomExceptions.InvalidNumberException', '40028');
+    eMap.put('InvalidNumberException', '40027');
+    eMap.put('InvalidNumberException', '40028');
   }
 }
