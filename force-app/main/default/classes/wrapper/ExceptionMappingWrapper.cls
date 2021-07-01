@@ -1,7 +1,7 @@
 public class ExceptionMappingWrapper {
   public static Map<String, String> eMap;
 
-  public static String getFailedStatusCode(String e) {
+  public static String GetFailStatusCode(String e) {
     setMap();
     String statusCode = eMap.get(e);
     return statusCode;
