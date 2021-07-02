@@ -4,9 +4,6 @@ public class ExampleWrapper {
   public String phone;
 
   public static ExampleWrapper parseJson(String jsonString) {
-    return (ExampleWrapper) System.JSON.deserialize(
-      jsonString,
-      ExampleWrapper.class
-    );
+    return (ExampleWrapper) System.JSON.deserialize(jsonString, ExampleWrapper.class);
   }
 }

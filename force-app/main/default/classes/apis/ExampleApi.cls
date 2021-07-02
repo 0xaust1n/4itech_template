@@ -14,15 +14,14 @@ global class ExampleApi {
     try {
       request = RestContext.request;
       response = RestContext.response;
-
-      ExampleWrapper wrapper = ExampleWrapper.parseJson(
-        request.requestBody.toString()
-      ); //use wrapper pasre request body
+      //-------Your Code Start---------------
+      ExampleWrapper wrapper = ExampleWrapper.parseJson(request.requestBody.toString()); //use wrapper pasre request body
       Account acc = new Account();
       acc.Name = wrapper.name;
       VerifyInput.verifyNumber(wrapper.phone);
       acc.Phone = wrapper.phone;
       insert acc;
+      //-------Your Code End---------------
       isSuccess = true; //Always set true
       isCreate = true; //Set true when insert
       statusCode = SuccessMappingWrapper.GetSuccessStatusCode(isCreate);
@@ -32,14 +31,9 @@ global class ExampleApi {
       statusCode = ExceptionMappingWrapper.GetFailStatusCode(e.getTypeName());
       content = e.getMessage();
     } finally {
+      //Always use finally to create response body
       response.statusCode = Integer.valueOf(statusCode.substring(0, 3));
-      response.responseBody = Blob.valueOf(
-        ResponseBodyWrapper.GetResponseBody(
-          String.valueOf(isSuccess),
-          statusCode,
-          content
-        )
-      );
+      response.responseBody = Blob.valueOf(ResponseBodyWrapper.GetResponseBody(String.valueOf(isSuccess), statusCode, content));
     }
   }
 }
