@@ -1,4 +1,4 @@
-public class ResponJsonWrapper {
+public class ResponseJsonWrapper {
   public String success;
   public Message message;
 
