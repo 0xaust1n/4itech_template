@@ -5,10 +5,10 @@ public class ResponseBodyWrapper {
     String content
   ) {
     //init wrapper class
-    ResponJsonWrapper wrapper = new ResponJsonWrapper();
+    ResponseJsonWrapper wrapper = new ResponseJsonWrapper();
     wrapper.success = isSuccess;
     //init messgae class
-    ResponJsonWrapper.Message msg = new ResponJsonWrapper.Message();
+    ResponseJsonWrapper.Message msg = new ResponseJsonWrapper.Message();
     msg.code = code;
     msg.content = content;
     //pass message class to wrapper
