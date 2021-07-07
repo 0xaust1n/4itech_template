@@ -1,4 +1,4 @@
-@RestResource(urlMapping='/ExampleApi')
+@RestResource(urlMapping='/ExampleApi') //Create Item REST API Example
 global class ExampleApi {
   //public variable
   public static Boolean isSuccess;
@@ -28,8 +28,8 @@ global class ExampleApi {
       messageContent = e.getMessage();
     } finally {
       if (isSuccess) {
-        messageContent = Constants.CreatedMessageContent;
-        messageCode = Constants.CreateMessageCode;
+        messageContent = Constants.CREATED_MESSAGE_CONTENT;
+        messageCode = Constants.CREATED_MESSAGE_CODE;
       }
       response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent);
     }
