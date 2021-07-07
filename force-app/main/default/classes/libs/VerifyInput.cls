@@ -9,7 +9,7 @@ public class VerifyInput extends CustomExceptions {
   public static void verifyNumber(String num) {
     Pattern isNumbers = Pattern.Compile('^[0-9]+$');
     Matcher numberMatcher = isNumbers.matcher(num);
-    if (String.isBlank(num) || numberMatcher.matches() == false) {
+    if (String.isBlank(num) || !numberMatcher.matches()) {
       throw new InvalidNumberException('The number is invalid.');
     }
   }
