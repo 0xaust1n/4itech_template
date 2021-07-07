@@ -5,8 +5,8 @@ public with sharing class ApiResponseUtil {
     wrapper.success = isSuccess;
     //init messgae class
     MessageResponseWrapper.Message message = new MessageResponseWrapper.Message();
-    message.MessageCode = code;
-    message.MessageContent = content;
+    message.messageCode = code;
+    message.messageContent = content;
     //pass message class to wrapper
     wrapper.message = message;
     String body = JSON.serialize(wrapper);
