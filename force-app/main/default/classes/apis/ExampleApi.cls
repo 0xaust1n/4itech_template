@@ -1,16 +1,16 @@
 @RestResource(urlMapping='/ExampleApi')
 global class ExampleApi {
   //public variable
-  public static Boolean isCreate;
   public static Boolean isSuccess;
-  public static String statusCode;
-  public static String content;
+  public static String messageCode;
+  public static String messageContent;
   public static RestRequest request;
   public static RestResponse response;
 
   //API Methods
   @HttpPost
   global static void createAccount() {
+    isSuccess = true; //Always set true
     try {
       request = RestContext.request;
       response = RestContext.response;
@@ -22,18 +22,16 @@ global class ExampleApi {
       acc.Phone = wrapper.phone;
       insert acc;
       //-------Your Code End---------------
-      isSuccess = true; //Always set true
-      isCreate = true; //Set true when insert
-      statusCode = SuccessMappingWrapper.GetSuccessStatusCode(isCreate);
-      content = SuccessMappingWrapper.GetSuccessContent(isCreate);
     } catch (Exception e) {
       isSuccess = false; //Always set false in exception
-      statusCode = ExceptionMappingWrapper.GetFailStatusCode(e.getTypeName());
-      content = e.getMessage();
+      messageCode = FailureMappingWrapper.getFailureStatusCode(e.getTypeName());
+      messageContent = e.getMessage();
     } finally {
-      //Always use finally to create response body
-      response.statusCode = Integer.valueOf(statusCode.substring(0, 3));
-      response.responseBody = Blob.valueOf(ResponseBodyWrapper.GetResponseBody(String.valueOf(isSuccess), statusCode, content));
+      if (isSuccess) {
+        messageContent = Constants.CreatedMessageContent;
+        messageCode = Constants.CreateMessageCode;
+      }
+      response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent);
     }
   }
 }
