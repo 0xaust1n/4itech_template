@@ -3,7 +3,7 @@ public class MessageResponseWrapper {
   public Message message;
 
   public class Message {
-    public String MessageCode;
-    public String MessageContent;
+    public String messageCode;
+    public String messageContent;
   }
 }
