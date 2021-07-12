@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
-        <name>CustomExceptions</name>
-        <name>TriggerHandler</name> 
-        <name>VerifyInput</name>
-        <name>ExceptionMappingWrapper</name>
-        <name>ResponseJsonWrapper</name>
-        <name>ResponseBodyWrapper</name>
-        <name>SuccessMappingWrapper</name>
+      <members>ApiResponseUtil</members>
+      <members>Constants</members>
+      <members>CustomExceptions</members>
+      <members>FailureMappingWrapper</members>
+      <members>HttpUtil</members>
+      <members>TriggerHandler</members> 
+      <members>VerifyInput</members>
+      <members>MessageResponseWrapper</members>
+      <name>ApexClass</name>
     </types>
     <version>52.0</version>
 </Package>
