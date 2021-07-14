@@ -1,6 +1,6 @@
 public class QueueableGetAccessToken implements Queueable, Database.AllowsCallouts {
   public void execute(QueueableContext context) {
-    HttpResponse response = GetAccessToken.GetResponseOfRefreshToken();
+    HttpResponse response = RefreshAccessTokenCallout.GetResponseOfRefreshToken();
     //parse response to wrapper
     RefreshTokenResponseWrapper wrapper = RefreshTokenResponseWrapper.parseJson(response.getBody());
     List<Token__c> tokens = [SELECT Name, Value__c FROM Token__c WHERE Name = 'access_token' LIMIT 1];
