@@ -1,5 +1,5 @@
 public class RefreshAccessTokenCallout {
-  public static HttpResponse GetResponseOfRefreshToken() {
+  public static HttpResponse getResponseOfRefreshToken() {
     Http http = new Http();
     HttpRequest request = new HttpRequest();
     String url = 'https://login.salesforce.com/services/oauth2/token?';
