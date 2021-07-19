@@ -1,5 +1,5 @@
-global class ScheduledGetAccessToken implements Schedulable {
+global class ScheduledGetAccessToken implements Schedulable, Database.AllowsCallouts {
   global void execute(SchedulableContext sc) {
-    ID jobID = System.enqueueJob(new QueueableGetAccessToken());
+    CalloutToPlaygroundUtil.getAccessToken();
   }
 }
