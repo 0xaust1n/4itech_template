@@ -1,4 +1,4 @@
-@RestResource(urlMapping='/ExampleApi') //Create Item REST API Example
+@RestResource(urlMapping='/Example') //Create Item REST API Example
 global class ExampleApi {
   //public variable
   public static Boolean isSuccess;

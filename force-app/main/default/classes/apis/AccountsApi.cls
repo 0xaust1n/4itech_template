@@ -1,4 +1,4 @@
-@RestResource(urlMapping='/AccountsApi')
+@RestResource(urlMapping='/Accounts')
 global class AccountsApi {
   public static Boolean isSuccess;
   public static String messageCode;
