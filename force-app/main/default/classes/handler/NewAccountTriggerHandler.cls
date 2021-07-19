@@ -7,12 +7,12 @@ public with sharing class NewAccountTriggerHandler extends TriggerHandler {
   protected override void afterInsert() {
     String stringBodyAsJson = JSON.serialize((List<Account>) Trigger.new);
     String method = 'POST';
-    SyncSobjectCallout.createCallout(url, stringBodyAsJson, method);
+    CalloutToPlaygroundUtil.createCallout(url, stringBodyAsJson);
   }
 
   protected override void afterUpdate() {
     String stringBodyAsJson = JSON.serialize((List<Account>) Trigger.new);
     String method = 'PUT';
-    SyncSobjectCallout.updateCallout(url, stringBodyAsJson, method);
+    CalloutToPlaygroundUtil.updateCallout(url, stringBodyAsJson);
   }
 }
