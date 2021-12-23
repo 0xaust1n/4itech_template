@@ -29,6 +29,7 @@ public with sharing class FailureMappingWrapper {
     exceptionMessageCodeMap.put('System.XmlException', '40026');
     exceptionMessageCodeMap.put('CustomExceptions.InvalidFutureDateException', '40027');
     exceptionMessageCodeMap.put('CustomExceptions.InvalidNumberException', '40028');
+    exceptionMessageCodeMap.put('CustomExceptions.InvalidListSizeException', '40029');
     String messageCode = exceptionMessageCodeMap.get(exceptionName);
     return messageCode;
   }

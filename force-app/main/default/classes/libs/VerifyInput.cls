@@ -13,4 +13,10 @@ public class VerifyInput extends CustomExceptions {
       throw new InvalidNumberException('The number is invalid.');
     }
   }
+
+  public static void verifyListSize(Integer size) {
+    if (size < 1) {
+      throw new InvalidListSizeException('List is empty');
+    }
+  }
 }
