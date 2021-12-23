@@ -29,7 +29,7 @@ global class AccountsApi {
     }
   }
 
-  @HttpPut
+  @HttpPatch
   global static void updateAccounts() {
     isSuccess = true;
     try {
