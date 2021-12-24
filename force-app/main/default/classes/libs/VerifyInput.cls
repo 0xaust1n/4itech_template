@@ -14,8 +14,11 @@ public class VerifyInput extends CustomExceptions {
     }
   }
 
-  public static void verifyListSize(Integer size) {
-    if (size < 1) {
+  public static void verifyListSize(List<Object> obj) {
+    if (obj == null) {
+      throw new InvalidListSizeException('List is empty');
+    }
+    if (obj.size() < 1) {
       throw new InvalidListSizeException('List is empty');
     }
   }
