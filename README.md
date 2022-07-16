@@ -1,16 +1,16 @@
-# 4iTech Salesforce Template
+# Salesforce REST-ful Template
 
-> This is a template for Apex REST-ful api
+> This is a template for Apex REST-ful API
 
-### feature
+## Feature
 - Trigger Handler Util
 - Get AccessToken Util  (Unsafe for production, Just for sandbox)
 - Refresh accessToken Util (Unsafe for production, Just for sandbox)
 - API Response Util
-### Installation
+## Installation
 ```bash
 yarn install
-// or
+# or try the short-hand
 yarn 
 ```
 
