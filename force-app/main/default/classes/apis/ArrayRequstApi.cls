@@ -15,11 +15,18 @@ global class ArrayRequstApi {
       request = RestContext.request;
       response = RestContext.response;
       //-------Your Code Start--------------
-      List<PhoneWrapper> wrapperList = (List<PhoneWrapper>) JSON.deserialize(request.requestBody.toString(), List<PhoneWrapper>.class);
+      List<PhoneWrapper> wrapperList = (List<PhoneWrapper>) JSON.deserialize(
+        request.requestBody.toString(),
+        List<PhoneWrapper>.class
+      );
       VerifyInput.verifyListSize(wrapperList);
       List<Account> resultList = new List<Account>();
       for (PhoneWrapper wrapper : wrapperList) {
-        List<Account> tempList = [SELECT Id, Name, Phone FROM Account WHERE Phone = :wrapper.phone];
+        List<Account> tempList = [
+          SELECT Id, Name, Phone
+          FROM Account
+          WHERE Phone = :wrapper.phone
+        ];
         resultList.addAll(tempList);
       }
       VerifyInput.verifyListSize(resultList);
@@ -39,7 +46,13 @@ global class ArrayRequstApi {
         messageContent = Constants.OK_MESSAGE_CONTENT;
         messageCode = Constants.OK_MESSAGE_CODE;
       }
-      response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent, messageData);
+      response = ApiResponseUtil.buildRestResponse(
+        response,
+        String.valueOf(isSuccess),
+        messageCode,
+        messageContent,
+        messageData
+      );
     }
   }
 }

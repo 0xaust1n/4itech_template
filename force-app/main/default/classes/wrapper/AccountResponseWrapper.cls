@@ -6,6 +6,9 @@ public class AccountResponseWrapper {
     this.name = acc.Name;
   }
   public static AccountResponseWrapper parseJson(String jsonString) {
-    return (AccountResponseWrapper) System.JSON.deserialize(jsonString, AccountResponseWrapper.class);
+    return (AccountResponseWrapper) System.JSON.deserialize(
+      jsonString,
+      AccountResponseWrapper.class
+    );
   }
 }

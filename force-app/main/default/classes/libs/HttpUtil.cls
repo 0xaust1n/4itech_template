@@ -1,5 +1,10 @@
 public class HttpUtil {
-  public static HttpResponse sendRequest(String url, String method, String stringBodyAsJson, String accessToken) {
+  public static HttpResponse sendRequest(
+    String url,
+    String method,
+    String stringBodyAsJson,
+    String accessToken
+  ) {
     Http http = new Http();
     HttpRequest request = new HttpRequest();
     request.setEndpoint(url);

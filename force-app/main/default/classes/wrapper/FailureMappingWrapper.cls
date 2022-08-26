@@ -8,7 +8,10 @@ public with sharing class FailureMappingWrapper {
     exceptionMessageCodeMap.put('System.EmailException', '40005');
     exceptionMessageCodeMap.put('System.ExternalObjectException', '40006');
     exceptionMessageCodeMap.put('System.IllegalArgumentException', '40007');
-    exceptionMessageCodeMap.put('System.InvalidParameterValueException', '40008');
+    exceptionMessageCodeMap.put(
+      'System.InvalidParameterValueException',
+      '40008'
+    );
     exceptionMessageCodeMap.put('System.LimitException', '40009');
     exceptionMessageCodeMap.put('System.JSONException', '40010');
     exceptionMessageCodeMap.put('System.ListException', '40011');
@@ -27,9 +30,18 @@ public with sharing class FailureMappingWrapper {
     exceptionMessageCodeMap.put('System.TypeException', '40024');
     exceptionMessageCodeMap.put('System.VisualforceException', '40025');
     exceptionMessageCodeMap.put('System.XmlException', '40026');
-    exceptionMessageCodeMap.put('CustomExceptions.InvalidFutureDateException', '40027');
-    exceptionMessageCodeMap.put('CustomExceptions.InvalidNumberException', '40028');
-    exceptionMessageCodeMap.put('CustomExceptions.InvalidListSizeException', '40029');
+    exceptionMessageCodeMap.put(
+      'CustomExceptions.InvalidFutureDateException',
+      '40027'
+    );
+    exceptionMessageCodeMap.put(
+      'CustomExceptions.InvalidNumberException',
+      '40028'
+    );
+    exceptionMessageCodeMap.put(
+      'CustomExceptions.InvalidListSizeException',
+      '40029'
+    );
     String messageCode = exceptionMessageCodeMap.get(exceptionName);
     return messageCode;
   }

@@ -14,7 +14,10 @@ global class AccountsApi {
       response = RestContext.response;
       //---------------------------------------
       String requestBody = request.requestBody.toString().trim();
-      List<Account> accounts = (List<Account>) JSON.deserialize(requestBody, List<Account>.class);
+      List<Account> accounts = (List<Account>) JSON.deserialize(
+        requestBody,
+        List<Account>.class
+      );
       insert accounts;
     } catch (Exception e) {
       isSuccess = false; //Always set false in exception
@@ -25,7 +28,12 @@ global class AccountsApi {
         messageContent = Constants.CREATED_MESSAGE_CONTENT;
         messageCode = Constants.CREATED_MESSAGE_CODE;
       }
-      response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent);
+      response = ApiResponseUtil.buildRestResponse(
+        response,
+        String.valueOf(isSuccess),
+        messageCode,
+        messageContent
+      );
     }
   }
 
@@ -37,7 +45,10 @@ global class AccountsApi {
       response = RestContext.response;
       //---------------------------------------
       String requestBody = request.requestBody.toString().trim();
-      List<Account> accounts = (List<Account>) JSON.deserialize(requestBody, List<Account>.class);
+      List<Account> accounts = (List<Account>) JSON.deserialize(
+        requestBody,
+        List<Account>.class
+      );
       update accounts;
     } catch (Exception e) {
       isSuccess = false; //Always set false in exception
@@ -48,7 +59,12 @@ global class AccountsApi {
         messageContent = Constants.OK_MESSAGE_CONTENT;
         messageCode = Constants.OK_MESSAGE_CODE;
       }
-      response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent);
+      response = ApiResponseUtil.buildRestResponse(
+        response,
+        String.valueOf(isSuccess),
+        messageCode,
+        messageContent
+      );
     }
   }
 }

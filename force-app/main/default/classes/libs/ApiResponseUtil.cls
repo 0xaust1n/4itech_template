@@ -1,5 +1,10 @@
 public with sharing class ApiResponseUtil {
-  public static RestResponse buildRestResponse(RestResponse response, String isSuccess, String code, String content) {
+  public static RestResponse buildRestResponse(
+    RestResponse response,
+    String isSuccess,
+    String code,
+    String content
+  ) {
     //init wrapper class
     MessageResponseWrapper wrapper = new MessageResponseWrapper();
     wrapper.success = isSuccess;
@@ -14,7 +19,13 @@ public with sharing class ApiResponseUtil {
     response.statusCode = Integer.valueOf(code.substring(0, 3));
     return response;
   }
-  public static RestResponse buildRestResponse(RestResponse response, String isSuccess, String code, String content, String data) {
+  public static RestResponse buildRestResponse(
+    RestResponse response,
+    String isSuccess,
+    String code,
+    String content,
+    String data
+  ) {
     //init wrapper class
     MessageResponseWrapper wrapper = new MessageResponseWrapper();
     wrapper.success = isSuccess;
@@ -24,7 +35,9 @@ public with sharing class ApiResponseUtil {
     messageWrapper.content = content;
     //pass message class to wrapper
     wrapper.message = messageWrapper;
-    wrapper.data = String.isNotEmpty(data) ? JSON.deserializeUntyped(data) : null;
+    wrapper.data = String.isNotEmpty(data)
+      ? JSON.deserializeUntyped(data)
+      : null;
     String StringBody = JSON.serializePretty(wrapper);
     response.responseBody = Blob.valueOf(StringBody);
     response.statusCode = Integer.valueOf(code.substring(0, 3));

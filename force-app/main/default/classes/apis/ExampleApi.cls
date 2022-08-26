@@ -15,11 +15,19 @@ global class ExampleApi {
       request = RestContext.request;
       response = RestContext.response;
       //-------Your Code Start--------------
-      ExampleWrapper wrapper = ExampleWrapper.parseJson(request.requestBody.toString());
+      ExampleWrapper wrapper = ExampleWrapper.parseJson(
+        request.requestBody.toString()
+      );
       VerifyInput.verifyNumber(wrapper.phone);
-      List<Account> accountList = [SELECT Id, Name, Phone FROM Account WHERE Phone = :wrapper.phone];
+      List<Account> accountList = [
+        SELECT Id, Name, Phone
+        FROM Account
+        WHERE Phone = :wrapper.phone
+      ];
       VerifyInput.verifyListSize(accountList); //check list is empty or not
-      AccountResponseWrapper responseContentWrapper = new AccountResponseWrapper(accountList.get(0));
+      AccountResponseWrapper responseContentWrapper = new AccountResponseWrapper(
+        accountList.get(0)
+      );
       messageData = JSON.serialize(responseContentWrapper);
       System.debug(messageContent);
       //-------Your Code End---------------
@@ -32,7 +40,13 @@ global class ExampleApi {
         messageContent = Constants.OK_MESSAGE_CONTENT;
         messageCode = Constants.OK_MESSAGE_CODE;
       }
-      response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent, messageData);
+      response = ApiResponseUtil.buildRestResponse(
+        response,
+        String.valueOf(isSuccess),
+        messageCode,
+        messageContent,
+        messageData
+      );
     }
   }
 
@@ -43,7 +57,9 @@ global class ExampleApi {
       request = RestContext.request;
       response = RestContext.response;
       //-------Your Code Start---------------
-      ExampleWrapper wrapper = ExampleWrapper.parseJson(request.requestBody.toString()); //use wrapper pasre request body
+      ExampleWrapper wrapper = ExampleWrapper.parseJson(
+        request.requestBody.toString()
+      ); //use wrapper pasre request body
       Account acc = new Account();
       acc.Name = wrapper.name;
       VerifyInput.verifyNumber(wrapper.phone);
@@ -58,9 +74,20 @@ global class ExampleApi {
       if (isSuccess) {
         messageContent = Constants.CREATED_MESSAGE_CONTENT;
         messageCode = Constants.CREATED_MESSAGE_CODE;
-        response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent, messageData);
+        response = ApiResponseUtil.buildRestResponse(
+          response,
+          String.valueOf(isSuccess),
+          messageCode,
+          messageContent,
+          messageData
+        );
       } else {
-        response = ApiResponseUtil.buildRestResponse(response, String.valueOf(isSuccess), messageCode, messageContent);
+        response = ApiResponseUtil.buildRestResponse(
+          response,
+          String.valueOf(isSuccess),
+          messageCode,
+          messageContent
+        );
       }
     }
   }
